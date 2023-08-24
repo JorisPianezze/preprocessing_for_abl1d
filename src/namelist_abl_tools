@@ -1,0 +1,54 @@
+:
+:-----------------------------------------------------------------------------
+: Atmospheric Boundary Layer preprocessing tool 
+:-----------------------------------------------------------------------------
+:
+&nml_dom
+    jpka         =    50 ,
+    hmax         =  2000.,
+    theta_s      =     2.,
+    hc           =   400.,
+    ln_impose_z1 = .true.,
+    z1           =    10.,
+/
+
+&nml_opt
+    ptemp_method    =          4 ,
+    ln_slp_smth     =      .true.,
+    slp_smth_method = 'laplacian',
+    slp_smth_iter   =          3 ,
+    ln_slp_log      =     .false.,
+    ln_read_zsurf   =      .true.,
+    ln_hpg_frc      =     .false.,
+    ln_geo_wnd      =      .true.,
+    ln_c1d          =     .false.,
+    ln_read_mask    =      .true.,
+    ln_lsm_land     =      .true.,
+    ln_perio_latbc  =     .false.,
+/
+
+&nml_fld
+    cn_dir      = '/data/dir',
+    mask_var    = 'lsm',
+    file_m      = 'ecmwf.OD.20141106.00.nc',
+    file_z      = 'ecmwf.OD.20141106.00.nc',
+    file_u      = 'ecmwf.OD.20141106.00.nc',
+    file_v      = 'ecmwf.OD.20141106.00.nc',
+    file_t      = 'ecmwf.OD.20141106.00.nc',
+    file_q      = 'ecmwf.OD.20141106.00.nc',
+    file_p      = 'ecmwf.OD.20141106.00.nc',
+    file_hpg    = 'hpg_ecmwf.OD.20141106.00.nc',
+    file_geos   = 'geos_ecmwf.OD.20141106.00.nc',
+/
+
+&nml_out
+    grd_file  = 'dom_cfg_abl_L50DZ20.nc',
+    abl_file  = 'out_ecmwf.OD.20141106.00.nc',
+    drwn_file = 'out_drown_ecmwf.OD.20141106.00.nc',
+    var_name  = '',
+/
+
+&nml_c1d
+    iloc = 283,
+    jloc =  52,
+/

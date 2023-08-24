@@ -1,0 +1,54 @@
+:
+:-----------------------------------------------------------------------------
+: Atmospheric Boundary Layer preprocessing tool 
+:-----------------------------------------------------------------------------
+:
+&nml_dom
+    jpka         =    50 ,
+    hmax         =  2000.,
+    theta_s      =     2.,
+    hc           =   400.,
+    ln_impose_z1 = .true.,
+    z1           =    10.,
+/
+
+&nml_opt
+    ptemp_method    =          4 ,
+    ln_slp_smth     =      .true.,
+    slp_smth_method = 'laplacian',
+    slp_smth_iter   =          3 ,
+    ln_slp_log      =     .false.,
+    ln_read_zsurf   =      .true.,
+    ln_hpg_frc      =     .false.,
+    ln_geo_wnd      =      .true.,
+    ln_c1d          =     .false.,
+    ln_read_mask    =      .true.,
+    ln_lsm_land     =      .true.,
+    ln_perio_latbc  =     .false.,
+/
+
+&nml_fld
+    cn_dir      = '.',
+    mask_var    = 'lsm',
+    file_m      = 'era5_for_preprocessing_tools.nc',
+    file_z      = 'era5_for_preprocessing_tools.nc',
+    file_u      = 'era5_for_preprocessing_tools.nc',
+    file_v      = 'era5_for_preprocessing_tools.nc',
+    file_t      = 'era5_for_preprocessing_tools.nc',
+    file_q      = 'era5_for_preprocessing_tools.nc',
+    file_p      = 'era5_for_preprocessing_tools.nc',
+    file_hpg    = 'hpg_era5_for_preprocessing_tools.nc',
+    file_geos   = 'geos_era5_for_preprocessing_tools.nc',
+/
+
+&nml_out
+    grd_file  = 'vertical_grid_N_abl_50_H_2000m_DZ_10m.nc',
+    abl_file  = 'out_era5_for_preprocessing_tools.nc',
+    drwn_file = 'out_drown_era5_for_preprocessing_tools.nc',
+    var_name  = '',
+/
+
+&nml_c1d
+    iloc = 283,
+    jloc =  52,
+/

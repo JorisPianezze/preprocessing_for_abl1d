@@ -1,0 +1,54 @@
+:
+:-----------------------------------------------------------------------------
+: Atmospheric Boundary Layer preprocessing tool 
+:-----------------------------------------------------------------------------
+:
+&nml_dom
+    jpka         =    50 ,
+    hmax         =  2000.,
+    theta_s      =     2.,
+    hc           =   400.,
+    ln_impose_z1 = .true.,
+    z1           =    10.,
+/
+
+&nml_opt
+    ptemp_method    =          4 ,
+    ln_slp_smth     =      .true.,
+    slp_smth_method = 'laplacian',
+    slp_smth_iter   =          3 ,
+    ln_slp_log      =     .false.,
+    ln_read_zsurf   =      .true.,
+    ln_hpg_frc      =     .false.,
+    ln_geo_wnd      =      .true.,
+    ln_c1d          =     .false.,
+    ln_read_mask    =      .true.,
+    ln_lsm_land     =      .true.,
+    ln_perio_latbc  =     .false.,
+/
+
+&nml_fld
+    cn_dir      = '.',
+    mask_var    = 'lsm',
+    file_m      = 'concatenate_all_ecmwf_files.nc',
+    file_z      = 'concatenate_all_ecmwf_files.nc',
+    file_u      = 'concatenate_all_ecmwf_files.nc',
+    file_v      = 'concatenate_all_ecmwf_files.nc',
+    file_t      = 'concatenate_all_ecmwf_files.nc',
+    file_q      = 'concatenate_all_ecmwf_files.nc',
+    file_p      = 'concatenate_all_ecmwf_files.nc',
+    file_hpg    = 'hpg_concatenate_all_ecmwf_files.nc',
+    file_geos   = 'geos_concatenate_all_ecmwf_files.nc',
+/
+
+&nml_out
+    grd_file  = 'dom_cfg_abl_L50DZ20.nc',
+    abl_file  = 'out_concatenate_all_ecmwf_files.nc',
+    drwn_file = 'out_drown_concatenate_all_ecmwf_files.nc',
+    var_name  = '',
+/
+
+&nml_c1d
+    iloc = 283,
+    jloc =  52,
+/
