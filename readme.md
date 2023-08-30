@@ -93,7 +93,7 @@ At the end of pre-proccessing tools executions, you need to have new files calle
 **Note**: Only **out_drown_era5_for_preprocessing_tools.nc** and **vertical_grid_N_abl_50_H_2000m_DZ_10m.nc** are used to prepare forcing for NEMO or CROCO oceanic models.
 
 <!-- ----------------------------------------- -->
-## 3.3 Convert for CROCO
+## 3.3 Convert to CROCO
 <!-- ----------------------------------------- -->
 
 Now, go to **2_convert_to_croco** directory to convert preproccess file to a readable format for CROCO using :
